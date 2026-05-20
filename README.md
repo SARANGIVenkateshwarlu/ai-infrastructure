@@ -28,6 +28,27 @@ pytest tests/test_smoke.py -v   # will fail until you implement the functions
 
 ---
 
+## Architecture Flow
+
+```mermaid
+flowchart LR
+    START([START]) --> classify[classify]
+    classify --> escalation_check[escalation_check]
+    escalation_check -->|escalate == False| auto_respond[auto_respond]
+    escalation_check -->|escalate == True| human_handoff[human_handoff]
+    auto_respond --> END([END])
+    human_handoff --> END([END])
+```
+
+| Node | Purpose |
+|------|---------|
+| `classify` | Classifies intent, detects sentiment, assigns priority, writes reasoning |
+| `escalation_check` | Determines if the ticket requires human escalation |
+| `auto_respond` | Generates an automated customer-facing response |
+| `human_handoff` | Generates a handoff message for human agents |
+
+---
+
 ## Your Tasks
 
 ### Part 1: Graph Architecture (~45 min)
