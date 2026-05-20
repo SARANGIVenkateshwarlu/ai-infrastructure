@@ -160,6 +160,8 @@ Good luck!
 
 ## pytest tests/test_smoke.py -v : Results
 
-![Test_Smoke](results\test_smoke1.png)
+![Test_Smoke](results/test_smoke1.png)
+
+![Test_Smoke](results/Support_chartbot_demo.png)
 
 
